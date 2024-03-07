@@ -64,22 +64,20 @@ We are analyzing real genome data from [1000 Genomes Project](https://www.intern
 │       └── kgvcf_ldl.{phe,phen,pheno}
 └── notebook ← Data processing and analysis
     ├── 0_download_1000genome_data_and_simulate_phenotypes.ipynb
-    ├── 1_convert_vcf_to_pgen.ipynb
-    ├── 2_convert_vcf_to_bed.ipynb
-    ├── 3_test_ldak.ipynb
+    ├── 1_convert_to_pgen.ipynb
+    ├── 2_convert_to_bed.ipynb
+    ├── 4_split_train_val_test.ipynb
+    ├── 5_simulate_phenotype.ipynb
+    ├── 6_update_phenotype_format.ipynb
     ├── 11_test_snpnet.ipynb
     ├── 12_test_GCTB.ipynb
-    ├── 15_test_C+T.ipynb
-    ├── CT.ipynb
-    ├── pheno_update.ipynb
-    ├── SimulatePhenotype.ipynb
-    └── split_train_val_test.ipynb
+    └── 15_test_C+T.ipynb
 ```
 
 
 ## Data Preprocessing
 
-### Genotypes (1000 Genomes)
+### [Genotypes (1000 Genomes)](https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/notebook/0_download_1000genome_data_and_simulate_phenotypes.ipynb) [![image](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1fsrn4J2BjSbKy6PdnAUmo6Rz7Hbbclbb?usp=sharing)
 - Goal: get the dataset of all autosomes from 1000 Genomes with quality control
 - Tool: PLINK
 - Data Quality Control
@@ -94,7 +92,7 @@ We are analyzing real genome data from [1000 Genomes Project](https://www.intern
     - Split by Super-population: `data/1000g_by_superpopulation/`
 - Reference: https://dougspeed.com/1000-genomes-project/
 
-### Phenotypes (Simulation)
+### [Phenotypes (Simulation)](https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/notebook/5_simulate_phenotype.ipynb) [![image](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1SwnUGFM03mQmzqktkIUt9pW-OBqze0jc?usp=sharing)
 - Goal: simulate phenotypes with different settings
 - Tool: [LDAK](https://dougspeed.com/simulations/) 
 - Options
@@ -116,7 +114,7 @@ We are analyzing real genome data from [1000 Genomes Project](https://www.intern
     - `data/1000g_pheno/` 
 - Reference: https://dougspeed.com/simulations/
 
-### Sample Splitting
+### [Sample Splitting](https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/notebook/4_split_train_val_test.ipynb) [![image](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/16fbgP6IK38J7wIoPl_Zj-Ts7Wk_rFqX3?usp=sharing)
 - For our study on PRS, we adopted two distinct approaches to split our data into training, validation, and testing sets, ensuring a comprehensive evaluation of our methods. 
     - We randomly dividing samples from **each superpopulation** into 80% training, 10% validation, and 10% test sets, while keeping each set has balanced number of samples from each population and sex. 
     - Alternatively, we drew inspiration from Problem Set 4 (PS4), where data was segmented by **population**. This method allowed us to examine the influence of genetic diversity on PRS performance by closely mirroring real-world population structures. 
@@ -131,7 +129,7 @@ We are analyzing real genome data from [1000 Genomes Project](https://www.intern
 
 $$PRS_i = \sum_{j \in S} \beta_j X_{ij}$$
 
-### C+T
+### [C+T](https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/notebook/13_test_C+T.ipynb) [![image](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1qmOKXFYZ5QZ4ZXcYXd8Hxry66RztcvgA?usp=sharing)
 - Tool: PLINK
 - Reference: UCSD CSE 284 Week 6 Lecture Slides, PS3, and PS4
 1. Perform a GWAS to estimate per-variant effect sizes ($\beta$'s)
@@ -147,7 +145,7 @@ $$PRS_i = \sum_{j \in S} \beta_j X_{ij}$$
 5. Computer final PRS with optimal $T$ and evaluate on a separate testing dataset
 - Repeat steps 2-4 to find out which $T$ & clumping parameters work the best (validation dataset)
 
-### BASIL
+### [BASIL](https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/notebook/11_test_snpnet.ipynb) [![image](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1OR4CZl0jsxGFqEJ0MFgDkcrLgv4YNv94?usp=sharing)
 
 - Tool: [`snpnet`](https://github.com/junyangq/snpnet?tab=readme-ov-file)
 - Reference: [Vignette of the `snpnet` `R` package](https://github.com/junyangq/snpnet/blob/master/vignettes/vignette.pdf) by Junyang Qian and Trevor Hastie
@@ -160,7 +158,7 @@ $$PRS_i = \sum_{j \in S} \beta_j X_{ij}$$
   - `new_genotype_file` to test on test set
 4. Evaluate $R^2$ in `pred_snpnet$metric`
 
-### BayesR
+### [BayesR](https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/notebook/12_test_GCTB.ipynb)  [![image](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1WGhJaDTsY1LcJuOcysQHrEndwxssRcwD?usp=sharing)
 
 - Tool: [`GCTB`](https://cnsgenomics.com/software/gctb/#SBayesRTutorial)
 - Reference: [Tutorial: Practical 4 Bayesian methods for genomic prediction](https://cnsgenomics.com/data/teaching/GNGWS23/module5/Practical4_Bayes.html) by `GCTB` package maintainer Jian Zeng
