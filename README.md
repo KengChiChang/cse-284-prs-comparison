@@ -151,14 +151,27 @@ $$PRS_i = \sum_{j \in S} \beta_j X_{ij}$$
 
 - Tool: [`snpnet`](https://github.com/junyangq/snpnet?tab=readme-ov-file)
 - Reference: [Vignette of the `snpnet` `R` package](https://github.com/junyangq/snpnet/blob/master/vignettes/vignette.pdf) by Junyang Qian and Trevor Hastie
-
+1. (Already preprocessed) convert genotypes to `.pgen`
+2. Train `snpnet()` model, get `fit_snpnet` object in `R`
+  - `niter = 100` controls the number of iterations
+  - `use.glmnetPlus = TRUE` recommended for faster computation
+3. Predict phenotype using `predict_snpnet()`, get `pred_snpnet` object
+  - `fit = fit_snpnet` to use the fitted model
+  - `new_genotype_file` to test on test set
+4. Evaluate $R^2$ in `pred_snpnet$metric`
 
 ### BayesR
 
 - Tool: [`GCTB`](https://cnsgenomics.com/software/gctb/#SBayesRTutorial)
 - Reference: [Tutorial: Practical 4 Bayesian methods for genomic prediction](https://cnsgenomics.com/data/teaching/GNGWS23/module5/Practical4_Bayes.html) by `GCTB` package maintainer Jian Zeng
-- Steps:
-1. 
+1. (Already preprocessed) convert genotypes to `.bed`
+2. Train BayesR model
+  - `--chain-length 10000` controls total length of Markov Chain
+  - `--burn-in 2000` controls number of burn-ins
+3. Get posterior effects for each SNP in `.snpRes` format
+4. Send `.snpRes` to `plink` for scoring of PRS scores
+5. Calculate R^2 against ground truth
+
 
 ## Evaluation
 - $R^2$ score on the test set in the context of GWAS and PRS provides a measure of how well a polygenic risk score can predict (true) phenotypes.
