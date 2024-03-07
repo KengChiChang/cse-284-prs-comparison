@@ -51,9 +51,10 @@ Polygenic Risk Scores (PRS) hold promise for personalized medicine but face chal
 - Dataset
     - `data/1000g_pheno/` 
 - Reference: https://dougspeed.com/simulations/
-## C+T
-## BASIL
-## BayesR
+## Methods
+### C+T
+### BASIL
+### BayesR
 ## Evaluation
 ### Data Splitting
 - For our study on PRS, we adopted two distinct approaches to split our data into training, validation, and testing sets, ensuring a comprehensive evaluation of our methods. 
@@ -87,6 +88,7 @@ Polygenic Risk Scores (PRS) hold promise for personalized medicine but face chal
 - Ding, Y., Hou, K., Xu, Z. et al. (2023) Polygenic scoring accuracy varies across the genetic ancestry continuum. Nature 618, 774–781. https://doi.org/10.1038/s41586-023-06079-4
 ---
 ## Challenges
-- In tackling our study on PRS, we ran into a common difficulty: the massive size of the 1000 Genomes dataset. With limited time and computing power, analyzing the entire dataset isn't feasible. So, we're taking a practical approach. We'll divide the data by super-population and population categories, much like we did in Problem Set 4 (PS4). This way, we can still conduct our GWAS effectively. By focusing on specific groups, we aim to strike a balance between thorough analysis and resource constraints.
+- In tackling our study on PRS, we ran into a common difficulty: the massive size of the 1000 Genomes dataset. With limited time and computing power, analyzing the entire dataset isn't feasible. So, we're taking a practical approach. We'll divide the data by super-population and population categories, much like we did in Problem Set 4 (PS4). This way, we can still conduct our GWAS effectively. By focusing on specific groups, we aim to strike a balance between thorough analysis and resource constraints. 
+- Also, another challenge lies in determining the optimal settings for phenotype simulation. While we recognize the importance of varying simulation parameters to comprehensively evaluate PRS performance, we face uncertainties regarding the number of settings required to yield sufficient insights. 
 ## Remaining Work 
 - We have completed the essential stages of data preprocessing and splitting for training, validation, and testing dataset. Additionally, our initial testing encompassed the evaluation of three key methods: Clumping + Thresholding (C+T), BASIL, and BayesR, yielding preliminary insights. Moving forward, our focus will shift towards extending our GWAS across a broader dataset. This expansion aims to deepen our understanding of how different phenotype simulations and the application of various PRS methods influence the resulting $R^2$ score. Furthermore, we are committed to enhancing the accessibility of our findings by visualizing results through tables and graphs. This approach will facilitate easier interpretation and comprehension, ensuring that our research contributes effectively to the broader discourse within the field.
