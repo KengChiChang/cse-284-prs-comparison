@@ -30,8 +30,9 @@ Polygenic Risk Scores (PRS) hold promise for personalized medicine but face chal
 - Reference: https://dougspeed.com/1000-genomes-project/
 ### Phenotypes (Simulation)
 - Goal: simulate phenotypes with different settings
-- Tool: [LDAK](https://dougspeed.com/simulations/)
+- Tool: [LDAK](https://dougspeed.com/simulations/) 
 - Options
+    - `--make-phenos`: perform simulation
     - `--power`: power indicates the probability that we can detect an association at the desired significance level, given that there is actually an association.
     - `--her`: heritability describes how much variation in the phenotype is described by genetics.
     - `--num-phenos`: the number of phenotypes to generate.
@@ -43,11 +44,13 @@ Polygenic Risk Scores (PRS) hold promise for personalized medicine but face chal
     - Heritability: {0.1, 0.3, 0.5, 0.7, 0.9}
     - Number of causal SNPs = {1, 10, 100, 1000, 10000} 
     - Total combinations: 2 * 5 * 5 = 50
+    - File Naming: `power=x_her=y_num-causals=z.phen`
+    - Columns: FID IID PHEN1 PHEN2 PHEN3 ... 
 - Reference: https://dougspeed.com/simulations/
-## Implementation
-## Challenges
-## Remaining Work 
-## Results
+## C+T
+## BASIL
+## BayesR
+## Results 
 ## Discussion
 ## Related Work
 
@@ -55,3 +58,6 @@ Polygenic Risk Scores (PRS) hold promise for personalized medicine but face chal
 - Qian J, Tanigawa Y, Du W, Aguirre M, Chang C, Tibshirani R, et al. (2020) A fast and scalable framework for large-scale and ultrahigh-dimensional sparse regression with application to the UK Biobank. PLoS Genet 16(10): e1009141. https://doi.org/10.1371/journal.pgen.1009141
 - Lloyd-Jones, L.R., Zeng, J., Sidorenko, J. et al. (2019) Improved polygenic prediction by Bayesian multiple regression on summary statistics. Nat Commun 10, 5086. https://doi.org/10.1038/s41467-019-12653-0
 - The 1000 Genomes Project Consortium. (2015) A global reference for human genetic variation. Nature 526, 68–74 https://doi.org/10.1038/nature15393
+---
+## Challenges
+## Remaining Work 
