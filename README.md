@@ -13,6 +13,37 @@ Polygenic Risk Scores (PRS) hold promise for personalized medicine but face chal
 - [1000 Genomes](https://www.internationalgenome.org)
 ## Tools 
 - [PLINK 2](https://www.cog-genomics.org/plink/2.0/)
+## Data Preprocessing
+### Genotypes (1000 Genomes)
+- Goal: get the dataset of all chromosomes from 1000 Genomes with quality control
+- Tool: PLINK
+- Data Quality Control
+    - `--maf 0.01 --snps-only just-acgt --max-alleles 2 --rm-dup exclude-all`
+- Create new binary binary fileset
+    - `--make-bed`
+    - `.bed` `.bim` `.fam`
+- Dataset
+    - Raw data: `1000g_raw_combined/`
+    - Cleaned data: `1000g_raw_combined/`
+    - Separated by Population: `1000g_by_population/`
+    - Separated by Super-population: `1000g_by_superpopulation`
+- Reference: https://dougspeed.com/1000-genomes-project/
+### Phenotypes (Simulation)
+- Goal: simulate phenotypes with different settings
+- Tool: [LDAK](https://dougspeed.com/simulations/)
+- Options
+    - `--power`: power indicates the probability that we can detect an association at the desired significance level, given that there is actually an association.
+    - `--her`: heritability describes how much variation in the phenotype is described by genetics.
+    - `--num-phenos`: the number of phenotypes to generate.
+    - `--num-causals`: the number of predictors contributing to each phenotype 
+    - Notes: LDAK will pick causal predictors at random. Also, LDAK will by default sample effect sizes from a standard normal distribution.
+- Our simulation settings
+    - Power: {-0.25, -1}
+        - Notes: GCTA Model with power of -1 vs. Human Default Model with power of -0.25
+    - Heritability: {0.1, 0.3, 0.5, 0.7, 0.9}
+    - Number of causal SNPs = {1, 10, 100, 1000, 10000} 
+    - Total combinations: 2 * 5 * 5 = 50
+- Reference: https://dougspeed.com/simulations/
 ## Implementation
 ## Challenges
 ## Remaining Work 
