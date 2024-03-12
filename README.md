@@ -1,8 +1,13 @@
 # How Simulation Parameters Impact Polygenic Scoring Accuracy Across Three Methods
+
+<img src="https://github.com/KengChiChang/cse-284-prs-comparison/blob/40b83cdf9b805f753f73a6b8fc9978ecefa33691/figure/result_by_numcausal_method_1.png?raw=true" width="50%"/><img src="https://github.com/KengChiChang/cse-284-prs-comparison/blob/40b83cdf9b805f753f73a6b8fc9978ecefa33691/figure/scores_by_pop_method_1.png?raw=true" width="50%"/>
+
 > Keywords: GWAS (Genome-wide Association Studies), PRS (Polygenic Risk Score), C+T (Clumping and Thresholding), BASIL (Lasso Regression), and BayesR (Bayesian Multiple Regression)
+
 ## Group 18
 - Keng-Chi Chang
 - Po-Chun Wu
+
 ## Introduction
 Polygenic Risk Scores (PRS) hold promise for personalized medicine but face challenges in prediction accuracy. This study investigates how simulation parameters affect PRS accuracy using Clumping + Thresholding, BASIL (Lasso-based method in `snpnet` package), and BayesR (Bayesian Multiple Regression-based method in `GCTB` package). By manipulating parameters such as heritability, number of causal SNPs, and how minor allel frequency affects heritability, we aim to understand whether certain PRS method might have advantage over others, and under what conditions. Our findings can inform the selection of PRS and phenotype simulation methods for precise disease risk prediction in clinical and research settings, advancing personalized healthcare interventions.
 
