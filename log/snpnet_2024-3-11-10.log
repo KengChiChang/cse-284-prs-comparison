@@ -29,3 +29,539 @@ Registered S3 methods overwritten by 'glmnetPlus':
   plot.cv.glmnet    glmnet
   deviance.glmnet   glmnet
 There were 50 or more warnings (use warnings() to see the first 50)
+
+Start time: Mon Mar 11 12:53:44 2024
+32768 MiB RAM detected; reserving 47777 MiB for main workspace.
+Using up to 2 compute threads.
+502 samples (263 females, 239 males; 502 founders) loaded from
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all.psam.
+283173 variants loaded from
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all.pvar.zst.
+Note: No phenotype data present.
+--keep: 352 samples remaining.
+352 samples (188 females, 164 males; 352 founders) remaining after main
+filters.
+--read-freq: PLINK 2 --geno-counts file detected.
+--read-freq: Frequencies for 283173 variants loaded.
+--variant-score: 5 score-vectors loaded for 352 samples.
+--variant-score: Score matrix written to
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_8.vscore.bin
+, and associated column and variant ID labels written to
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_8.vscore.cols
+and
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_8.vscore.vars.zst
+.
+End time: Mon Mar 11 12:53:44 2024
+[2024-03-11 12:53:44.944461 snpnet]         End plink2 --variant-score. Time elapsed: 0.4866 secs
+[2024-03-11 12:53:44.955231 snpnet]       End computeProduct(). Time elapsed: 0.4973 secs
+[2024-03-11 12:53:45.067714 snpnet]   KKT check obj done ...
+[2024-03-11 12:53:45.143635 snpnet]     Time of prediction on validation matrix Time elapsed: 0.0057 secs
+[2024-03-11 12:53:45.14409 snpnet] metric train
+[2024-03-11 12:53:45.144263 snpnet] metric val.
+[2024-03-11 12:53:45.14567 snpnet]   Training and validation metric:
+[2024-03-11 12:53:45.145753 snpnet]   - Lambda idx 41. Training: 0.85807137548438. Validation: 0.495815225279841
+[2024-03-11 12:53:45.145803 snpnet]   - Lambda idx 42. Training: 0.868317990785482. Validation: 0.497087021710374
+[2024-03-11 12:53:45.145846 snpnet]   - Lambda idx 43. Training: 0.877745418259409. Validation: 0.498347585312056
+[2024-03-11 12:53:45.145886 snpnet]   - Lambda idx 44. Training: 0.886584653150001. Validation: 0.500647066070455
+[2024-03-11 12:53:45.145926 snpnet]   - Lambda idx 45. Training: 0.894809771847106. Validation: 0.50275116182777
+[2024-03-11 12:53:45.145968 snpnet]   End iteration 8. Time elapsed: 3.6545 secs
+[2024-03-11 12:53:45.145968 snpnet]     The total time since start. Time elapsed: 30.5479 secs
+[2024-03-11 12:53:45.146156 snpnet] stopping lag=43, max.val.1=0.498348 max.val.2=0.502751
+[2024-03-11 12:53:45.146194 snpnet] Iteration 9
+[2024-03-11 12:53:48.263193 snpnet]     Start computeProduct()
+[2024-03-11 12:53:48.263193 snpnet]       Start plink2 --variant-score
+PLINK v2.00a5.10 M1 (5 Jan 2024)               www.cog-genomics.org/plink/2.0/
+(C) 2005-2024 Shaun Purcell, Christopher Chang   GNU General Public License v3
+Logging to /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_9.log.
+Options in effect:
+  --keep /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_9.tsv
+  --memory 47777
+  --out /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_9
+  --pfile /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all vzs
+  --read-freq /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/meta/snpnet.train.gcount
+  --threads 2
+  --variant-score /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_9.tsv zs bin
+
+Start time: Mon Mar 11 12:53:48 2024
+32768 MiB RAM detected; reserving 47777 MiB for main workspace.
+Using up to 2 compute threads.
+502 samples (263 females, 239 males; 502 founders) loaded from
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all.psam.
+283173 variants loaded from
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all.pvar.zst.
+Note: No phenotype data present.
+--keep: 352 samples remaining.
+352 samples (188 females, 164 males; 352 founders) remaining after main
+filters.
+--read-freq: PLINK 2 --geno-counts file detected.
+--read-freq: Frequencies for 283173 variants loaded.
+--variant-score: 5 score-vectors loaded for 352 samples.
+--variant-score: Score matrix written to
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_9.vscore.bin
+, and associated column and variant ID labels written to
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_9.vscore.cols
+and
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_9.vscore.vars.zst
+.
+End time: Mon Mar 11 12:53:48 2024
+[2024-03-11 12:53:48.670495 snpnet]         End plink2 --variant-score. Time elapsed: 0.4073 secs
+[2024-03-11 12:53:48.681181 snpnet]       End computeProduct(). Time elapsed: 0.418 secs
+[2024-03-11 12:53:48.793255 snpnet]   KKT check obj done ...
+[2024-03-11 12:53:48.862597 snpnet]     Time of prediction on validation matrix Time elapsed: 0.0034 secs
+[2024-03-11 12:53:48.862764 snpnet] metric train
+[2024-03-11 12:53:48.862893 snpnet] metric val.
+[2024-03-11 12:53:48.864165 snpnet]   Training and validation metric:
+[2024-03-11 12:53:48.864225 snpnet]   - Lambda idx 46. Training: 0.902607590591371. Validation: 0.504565879178362
+[2024-03-11 12:53:48.86427 snpnet]   - Lambda idx 47. Training: 0.909937247540404. Validation: 0.506616371476697
+[2024-03-11 12:53:48.864309 snpnet]   - Lambda idx 48. Training: 0.916835020487698. Validation: 0.508925562684906
+[2024-03-11 12:53:48.864348 snpnet]   - Lambda idx 49. Training: 0.923295352953784. Validation: 0.509937537690716
+[2024-03-11 12:53:48.864391 snpnet]   - Lambda idx 50. Training: 0.929290720747908. Validation: 0.510179707128884
+[2024-03-11 12:53:48.864438 snpnet]   End iteration 9. Time elapsed: 3.7182 secs
+[2024-03-11 12:53:48.864438 snpnet]     The total time since start. Time elapsed: 34.2664 secs
+[2024-03-11 12:53:48.864689 snpnet] stopping lag=48, max.val.1=0.508926 max.val.2=0.51018
+[2024-03-11 12:53:48.864732 snpnet] Iteration 10
+[2024-03-11 12:53:51.849066 snpnet]     Start computeProduct()
+[2024-03-11 12:53:51.849066 snpnet]       Start plink2 --variant-score
+PLINK v2.00a5.10 M1 (5 Jan 2024)               www.cog-genomics.org/plink/2.0/
+(C) 2005-2024 Shaun Purcell, Christopher Chang   GNU General Public License v3
+Logging to /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_10.log.
+Options in effect:
+  --keep /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_10.tsv
+  --memory 47777
+  --out /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_10
+  --pfile /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all vzs
+  --read-freq /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/meta/snpnet.train.gcount
+  --threads 2
+  --variant-score /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_10.tsv zs bin
+
+Start time: Mon Mar 11 12:53:52 2024
+32768 MiB RAM detected; reserving 47777 MiB for main workspace.
+Using up to 2 compute threads.
+502 samples (263 females, 239 males; 502 founders) loaded from
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all.psam.
+283173 variants loaded from
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all.pvar.zst.
+Note: No phenotype data present.
+--keep: 352 samples remaining.
+352 samples (188 females, 164 males; 352 founders) remaining after main
+filters.
+--read-freq: PLINK 2 --geno-counts file detected.
+--read-freq: Frequencies for 283173 variants loaded.
+--variant-score: 5 score-vectors loaded for 352 samples.
+--variant-score: Score matrix written to
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_10.vscore.bin
+, and associated column and variant ID labels written to
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_10.vscore.cols
+and
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_10.vscore.vars.zst
+.
+End time: Mon Mar 11 12:53:52 2024
+[2024-03-11 12:53:52.319069 snpnet]         End plink2 --variant-score. Time elapsed: 0.47 secs
+[2024-03-11 12:53:52.33052 snpnet]       End computeProduct(). Time elapsed: 0.4815 secs
+[2024-03-11 12:53:52.432795 snpnet]   KKT check obj done ...
+[2024-03-11 12:53:52.503157 snpnet]     Time of prediction on validation matrix Time elapsed: 0.004 secs
+[2024-03-11 12:53:52.503347 snpnet] metric train
+[2024-03-11 12:53:52.50347 snpnet] metric val.
+[2024-03-11 12:53:52.505004 snpnet]   Training and validation metric:
+[2024-03-11 12:53:52.505089 snpnet]   - Lambda idx 51. Training: 0.934873410096136. Validation: 0.510557945118887
+[2024-03-11 12:53:52.505137 snpnet]   - Lambda idx 52. Training: 0.940103668257792. Validation: 0.511861865100681
+[2024-03-11 12:53:52.505178 snpnet]   - Lambda idx 53. Training: 0.944915863515683. Validation: 0.513264294921145
+[2024-03-11 12:53:52.505648 snpnet]   - Lambda idx 54. Training: 0.949335875448394. Validation: 0.514032857785918
+[2024-03-11 12:53:52.505793 snpnet]   - Lambda idx 55. Training: 0.953441246343428. Validation: 0.514983261312584
+[2024-03-11 12:53:52.505848 snpnet]   End iteration 10. Time elapsed: 3.6411 secs
+[2024-03-11 12:53:52.505848 snpnet]     The total time since start. Time elapsed: 37.9078 secs
+[2024-03-11 12:53:52.506083 snpnet] stopping lag=53, max.val.1=0.513264 max.val.2=0.514983
+[2024-03-11 12:53:52.506138 snpnet] Iteration 11
+[2024-03-11 12:53:55.547042 snpnet]     Start computeProduct()
+[2024-03-11 12:53:55.547042 snpnet]       Start plink2 --variant-score
+PLINK v2.00a5.10 M1 (5 Jan 2024)               www.cog-genomics.org/plink/2.0/
+(C) 2005-2024 Shaun Purcell, Christopher Chang   GNU General Public License v3
+Logging to /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_11.log.
+Options in effect:
+  --keep /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_11.tsv
+  --memory 47776
+  --out /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_11
+  --pfile /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all vzs
+  --read-freq /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/meta/snpnet.train.gcount
+  --threads 2
+  --variant-score /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_11.tsv zs bin
+
+Start time: Mon Mar 11 12:53:55 2024
+32768 MiB RAM detected; reserving 47776 MiB for main workspace.
+Using up to 2 compute threads.
+502 samples (263 females, 239 males; 502 founders) loaded from
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all.psam.
+283173 variants loaded from
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all.pvar.zst.
+Note: No phenotype data present.
+--keep: 352 samples remaining.
+352 samples (188 females, 164 males; 352 founders) remaining after main
+filters.
+--read-freq: PLINK 2 --geno-counts file detected.
+--read-freq: Frequencies for 283173 variants loaded.
+--variant-score: 5 score-vectors loaded for 352 samples.
+--variant-score: Score matrix written to
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_11.vscore.bin
+, and associated column and variant ID labels written to
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_11.vscore.cols
+and
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_11.vscore.vars.zst
+.
+End time: Mon Mar 11 12:53:55 2024
+[2024-03-11 12:53:55.992742 snpnet]         End plink2 --variant-score. Time elapsed: 0.4457 secs
+[2024-03-11 12:53:56.004498 snpnet]       End computeProduct(). Time elapsed: 0.4575 secs
+[2024-03-11 12:53:56.11691 snpnet]   KKT check obj done ...
+[2024-03-11 12:53:56.198354 snpnet]     Time of prediction on validation matrix Time elapsed: 0.0046 secs
+[2024-03-11 12:53:56.198531 snpnet] metric train
+[2024-03-11 12:53:56.198649 snpnet] metric val.
+[2024-03-11 12:53:56.200515 snpnet]   Training and validation metric:
+[2024-03-11 12:53:56.200613 snpnet]   - Lambda idx 56. Training: 0.957277258592012. Validation: 0.516326173973063
+[2024-03-11 12:53:56.200669 snpnet]   - Lambda idx 57. Training: 0.960766811179024. Validation: 0.516298688986791
+[2024-03-11 12:53:56.200759 snpnet]   - Lambda idx 58. Training: 0.963958367712435. Validation: 0.516110643052934
+[2024-03-11 12:53:56.200858 snpnet]   - Lambda idx 59. Training: 0.966888626090946. Validation: 0.516456182852042
+[2024-03-11 12:53:56.200922 snpnet]   - Lambda idx 60. Training: 0.969617941271197. Validation: 0.515763572762545
+[2024-03-11 12:53:56.200972 snpnet]   End iteration 11. Time elapsed: 3.6948 secs
+[2024-03-11 12:53:56.200972 snpnet]     The total time since start. Time elapsed: 41.6029 secs
+[2024-03-11 12:53:56.201185 snpnet] stopping lag=58, max.val.1=0.516326 max.val.2=0.516456
+[2024-03-11 12:53:56.201231 snpnet] Iteration 12
+[2024-03-11 12:53:59.437825 snpnet]     Start computeProduct()
+[2024-03-11 12:53:59.437825 snpnet]       Start plink2 --variant-score
+PLINK v2.00a5.10 M1 (5 Jan 2024)               www.cog-genomics.org/plink/2.0/
+(C) 2005-2024 Shaun Purcell, Christopher Chang   GNU General Public License v3
+Logging to /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_12.log.
+Options in effect:
+  --keep /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_12.tsv
+  --memory 47776
+  --out /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_12
+  --pfile /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all vzs
+  --read-freq /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/meta/snpnet.train.gcount
+  --threads 2
+  --variant-score /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_12.tsv zs bin
+
+Start time: Mon Mar 11 12:53:59 2024
+32768 MiB RAM detected; reserving 47776 MiB for main workspace.
+Using up to 2 compute threads.
+502 samples (263 females, 239 males; 502 founders) loaded from
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all.psam.
+283173 variants loaded from
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all.pvar.zst.
+Note: No phenotype data present.
+--keep: 352 samples remaining.
+352 samples (188 females, 164 males; 352 founders) remaining after main
+filters.
+--read-freq: PLINK 2 --geno-counts file detected.
+--read-freq: Frequencies for 283173 variants loaded.
+--variant-score: 5 score-vectors loaded for 352 samples.
+--variant-score: Score matrix written to
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_12.vscore.bin
+, and associated column and variant ID labels written to
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_12.vscore.cols
+and
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_12.vscore.vars.zst
+.
+End time: Mon Mar 11 12:53:59 2024
+[2024-03-11 12:53:59.853604 snpnet]         End plink2 --variant-score. Time elapsed: 0.4158 secs
+[2024-03-11 12:53:59.86567 snpnet]       End computeProduct(). Time elapsed: 0.4278 secs
+[2024-03-11 12:53:59.971085 snpnet]   KKT check obj done ...
+[2024-03-11 12:54:00.043236 snpnet]     Time of prediction on validation matrix Time elapsed: 0.0042 secs
+[2024-03-11 12:54:00.043421 snpnet] metric train
+[2024-03-11 12:54:00.043541 snpnet] metric val.
+[2024-03-11 12:54:00.045088 snpnet]   Training and validation metric:
+[2024-03-11 12:54:00.045189 snpnet]   - Lambda idx 61. Training: 0.972139693358326. Validation: 0.515091803696188
+[2024-03-11 12:54:00.045239 snpnet]   - Lambda idx 62. Training: 0.974456969518043. Validation: 0.514311100950529
+[2024-03-11 12:54:00.045285 snpnet]   - Lambda idx 63. Training: 0.9765799786148. Validation: 0.513536602773403
+[2024-03-11 12:54:00.045326 snpnet]   - Lambda idx 64. Training: 0.978523591996511. Validation: 0.512808979501691
+[2024-03-11 12:54:00.045366 snpnet]   - Lambda idx 65. Training: 0.980302631744574. Validation: 0.511957546809097
+[2024-03-11 12:54:00.045406 snpnet]   End iteration 12. Time elapsed: 3.8442 secs
+[2024-03-11 12:54:00.045406 snpnet]     The total time since start. Time elapsed: 45.4473 secs
+[2024-03-11 12:54:00.045606 snpnet] stopping lag=63, max.val.1=0.516456 max.val.2=0.512809
+[2024-03-11 12:54:00.045647 snpnet] Early stopped at iteration 12 (Lambda idx=59 ) with validation metric: 0.51645618285204.
+[2024-03-11 12:54:00.045686 snpnet]   Previous ones: 0.512808979501691, 0.511957546809097.
+[2024-03-11 12:54:00.04573 snpnet] End snpnet. Time elapsed: 45.4477 secs
+-- Train score 0.980302632579425: pop=EUR, power=-0.25, her=0.9, num-causals=50, pheno=19
+-- Test score 0.51157728510345: pop=EUR, power=-0.25, her=0.9, num-causals=50, pheno=19
+---- Train: pop=EUR, power=-0.25, her=0.9, num-causals=50, pheno=20
+[2024-03-11 12:54:02.358791 snpnet] Start snpnet
+[2024-03-11 12:54:02.358886 snpnet] Preprocessing start..
+PLINK v2.00a5.10 M1 (5 Jan 2024)               www.cog-genomics.org/plink/2.0/
+(C) 2005-2024 Shaun Purcell, Christopher Chang   GNU General Public License v3
+Logging to /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/meta/snpnet.train.log.
+Options in effect:
+  --geno-counts cols=chrom,pos,ref,alt,homref,refalt,altxy,hapref,hapalt,missing,nobs
+  --keep /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/meta/snpnet.train.keep
+  --memory 48000
+  --out /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/meta/snpnet.train
+  --pfile /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all vzs
+  --threads 2
+
+Start time: Mon Mar 11 12:54:02 2024
+32768 MiB RAM detected; reserving 48000 MiB for main workspace.
+Using up to 2 compute threads.
+502 samples (263 females, 239 males; 502 founders) loaded from
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all.psam.
+283173 variants loaded from
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all.pvar.zst.
+Note: No phenotype data present.
+--keep: 352 samples remaining.
+352 samples (188 females, 164 males; 352 founders) remaining after main
+filters.
+Calculating allele frequencies... done.
+--geno-counts: Genotype counts written to
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/meta/snpnet.train.gcount
+.
+End time: Mon Mar 11 12:54:02 2024
+[2024-03-11 12:54:03.009999 snpnet]   Preprocessing end. Time elapsed: 0.6512 secs
+[2024-03-11 12:54:03.010228 snpnet] Iteration 0
+[2024-03-11 12:54:03.011287 snpnet]     Start computeProduct()
+[2024-03-11 12:54:03.011287 snpnet]       Start plink2 --variant-score
+PLINK v2.00a5.10 M1 (5 Jan 2024)               www.cog-genomics.org/plink/2.0/
+(C) 2005-2024 Shaun Purcell, Christopher Chang   GNU General Public License v3
+Logging to /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_0.log.
+Options in effect:
+  --keep /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_0.tsv
+  --memory 47796
+  --out /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_0
+  --pfile /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all vzs
+  --read-freq /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/meta/snpnet.train.gcount
+  --threads 2
+  --variant-score /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_0.tsv zs bin
+
+Start time: Mon Mar 11 12:54:03 2024
+32768 MiB RAM detected; reserving 47796 MiB for main workspace.
+Using up to 2 compute threads.
+502 samples (263 females, 239 males; 502 founders) loaded from
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all.psam.
+283173 variants loaded from
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all.pvar.zst.
+Note: No phenotype data present.
+--keep: 352 samples remaining.
+352 samples (188 females, 164 males; 352 founders) remaining after main
+filters.
+--read-freq: PLINK 2 --geno-counts file detected.
+--read-freq: Frequencies for 283173 variants loaded.
+--variant-score: 1 score-vector loaded for 352 samples.
+--variant-score: Score matrix written to
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_0.vscore.bin
+, and associated column and variant ID labels written to
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_0.vscore.cols
+and
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_0.vscore.vars.zst
+.
+End time: Mon Mar 11 12:54:03 2024
+[2024-03-11 12:54:03.519845 snpnet]         End plink2 --variant-score. Time elapsed: 0.5086 secs
+[2024-03-11 12:54:03.527412 snpnet]       End computeProduct(). Time elapsed: 0.5161 secs
+
+[2024-03-11 12:54:03.532112 snpnet] Iteration 1
+[2024-03-11 12:54:06.267456 snpnet]     Start computeProduct()
+[2024-03-11 12:54:06.267456 snpnet]       Start plink2 --variant-score
+PLINK v2.00a5.10 M1 (5 Jan 2024)               www.cog-genomics.org/plink/2.0/
+(C) 2005-2024 Shaun Purcell, Christopher Chang   GNU General Public License v3
+Logging to /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_1.log.
+Options in effect:
+  --keep /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_1.tsv
+  --memory 47783
+  --out /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_1
+  --pfile /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all vzs
+  --read-freq /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/meta/snpnet.train.gcount
+  --threads 2
+  --variant-score /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_1.tsv zs bin
+
+Start time: Mon Mar 11 12:54:06 2024
+32768 MiB RAM detected; reserving 47783 MiB for main workspace.
+Using up to 2 compute threads.
+502 samples (263 females, 239 males; 502 founders) loaded from
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all.psam.
+283173 variants loaded from
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all.pvar.zst.
+Note: No phenotype data present.
+--keep: 352 samples remaining.
+352 samples (188 females, 164 males; 352 founders) remaining after main
+filters.
+--read-freq: PLINK 2 --geno-counts file detected.
+--read-freq: Frequencies for 283173 variants loaded.
+--variant-score: 10 score-vectors loaded for 352 samples.
+--variant-score: Score matrix written to
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_1.vscore.bin
+, and associated column and variant ID labels written to
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_1.vscore.cols
+and
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_1.vscore.vars.zst
+.
+End time: Mon Mar 11 12:54:06 2024
+[2024-03-11 12:54:06.805244 snpnet]         End plink2 --variant-score. Time elapsed: 0.5378 secs
+[2024-03-11 12:54:06.819428 snpnet]       End computeProduct(). Time elapsed: 0.552 secs
+[2024-03-11 12:54:07.057085 snpnet]   KKT check obj done ...
+[2024-03-11 12:54:07.20257 snpnet]     Time of prediction on validation matrix Time elapsed: 0.0031 secs
+[2024-03-11 12:54:07.202762 snpnet] metric train
+[2024-03-11 12:54:07.202922 snpnet] metric val.
+[2024-03-11 12:54:07.204194 snpnet]   Training and validation metric:
+[2024-03-11 12:54:07.204282 snpnet]   - Lambda idx 1. Training: -4.23838699692425e-08. Validation: -0.00123782965098784
+[2024-03-11 12:54:07.204336 snpnet]   - Lambda idx 2. Training: 0.0105596405854064. Validation: 0.0136693199772359
+[2024-03-11 12:54:07.204384 snpnet]   - Lambda idx 3. Training: 0.0201812304233981. Validation: 0.0273611471472048
+[2024-03-11 12:54:07.204427 snpnet]   - Lambda idx 4. Training: 0.0289480647383953. Validation: 0.0399406641006029
+[2024-03-11 12:54:07.20447 snpnet]   - Lambda idx 5. Training: 0.0369469256351995. Validation: 0.0515162270403696
+[2024-03-11 12:54:07.204514 snpnet]   - Lambda idx 6. Training: 0.0470588407330876. Validation: 0.0626880507411016
+[2024-03-11 12:54:07.204564 snpnet]   - Lambda idx 7. Training: 0.0609605910844503. Validation: 0.0738465274912607
+[2024-03-11 12:54:07.204629 snpnet]   - Lambda idx 8. Training: 0.0804612801803846. Validation: 0.0830320395053165
+[2024-03-11 12:54:07.204673 snpnet]   - Lambda idx 9. Training: 0.100649591556769. Validation: 0.0896916398312559
+[2024-03-11 12:54:07.204716 snpnet]   - Lambda idx 10. Training: 0.119394331225455. Validation: 0.0957003580615907
+[2024-03-11 12:54:07.204757 snpnet]   End iteration 1. Time elapsed: 3.6726 secs
+[2024-03-11 12:54:07.204757 snpnet]     The total time since start. Time elapsed: 4.846 secs
+[2024-03-11 12:54:07.204953 snpnet] stopping lag=8, max.val.1=0.083032 max.val.2=0.0957004
+[2024-03-11 12:54:07.204995 snpnet] Iteration 2
+[2024-03-11 12:54:10.161325 snpnet]     Start computeProduct()
+[2024-03-11 12:54:10.161325 snpnet]       Start plink2 --variant-score
+PLINK v2.00a5.10 M1 (5 Jan 2024)               www.cog-genomics.org/plink/2.0/
+(C) 2005-2024 Shaun Purcell, Christopher Chang   GNU General Public License v3
+Logging to /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_2.log.
+Options in effect:
+  --keep /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_2.tsv
+  --memory 47778
+  --out /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_2
+  --pfile /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all vzs
+  --read-freq /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/meta/snpnet.train.gcount
+  --threads 2
+  --variant-score /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_2.tsv zs bin
+
+Start time: Mon Mar 11 12:54:10 2024
+32768 MiB RAM detected; reserving 47778 MiB for main workspace.
+Using up to 2 compute threads.
+502 samples (263 females, 239 males; 502 founders) loaded from
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all.psam.
+283173 variants loaded from
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all.pvar.zst.
+Note: No phenotype data present.
+--keep: 352 samples remaining.
+352 samples (188 females, 164 males; 352 founders) remaining after main
+filters.
+--read-freq: PLINK 2 --geno-counts file detected.
+--read-freq: Frequencies for 283173 variants loaded.
+--variant-score: 5 score-vectors loaded for 352 samples.
+--variant-score: Score matrix written to
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_2.vscore.bin
+, and associated column and variant ID labels written to
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_2.vscore.cols
+and
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_2.vscore.vars.zst
+.
+End time: Mon Mar 11 12:54:10 2024
+[2024-03-11 12:54:10.579149 snpnet]         End plink2 --variant-score. Time elapsed: 0.4178 secs
+[2024-03-11 12:54:10.58888 snpnet]       End computeProduct(). Time elapsed: 0.4276 secs
+[2024-03-11 12:54:10.639982 snpnet]   KKT check obj done ...
+[2024-03-11 12:54:10.765642 snpnet]     Time of prediction on validation matrix Time elapsed: 0.0033 secs
+[2024-03-11 12:54:10.765871 snpnet] metric train
+[2024-03-11 12:54:10.766005 snpnet] metric val.
+[2024-03-11 12:54:10.767176 snpnet]   Training and validation metric:
+[2024-03-11 12:54:10.76727 snpnet]   - Lambda idx 11. Training: 0.136656836191342. Validation: 0.101255033664362
+[2024-03-11 12:54:10.767324 snpnet]   - Lambda idx 12. Training: 0.154118580283801. Validation: 0.109617522755973
+[2024-03-11 12:54:10.767369 snpnet]   - Lambda idx 13. Training: 0.173929247966638. Validation: 0.117694711475141
+[2024-03-11 12:54:10.767412 snpnet]   - Lambda idx 14. Training: 0.195413306365052. Validation: 0.12360962605487
+[2024-03-11 12:54:10.767453 snpnet]   - Lambda idx 15. Training: 0.220799522635828. Validation: 0.12722008575275
+[2024-03-11 12:54:10.767496 snpnet]   End iteration 2. Time elapsed: 3.5625 secs
+[2024-03-11 12:54:10.767496 snpnet]     The total time since start. Time elapsed: 8.4087 secs
+[2024-03-11 12:54:10.767694 snpnet] stopping lag=13, max.val.1=0.117695 max.val.2=0.12722
+[2024-03-11 12:54:10.767734 snpnet] Iteration 3
+[2024-03-11 12:54:13.878599 snpnet]     Start computeProduct()
+[2024-03-11 12:54:13.878599 snpnet]       Start plink2 --variant-score
+PLINK v2.00a5.10 M1 (5 Jan 2024)               www.cog-genomics.org/plink/2.0/
+(C) 2005-2024 Shaun Purcell, Christopher Chang   GNU General Public License v3
+Logging to /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_3.log.
+Options in effect:
+  --keep /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_3.tsv
+  --memory 47778
+  --out /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_3
+  --pfile /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all vzs
+  --read-freq /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/meta/snpnet.train.gcount
+  --threads 2
+  --variant-score /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_3.tsv zs bin
+
+Start time: Mon Mar 11 12:54:14 2024
+32768 MiB RAM detected; reserving 47778 MiB for main workspace.
+Using up to 2 compute threads.
+502 samples (263 females, 239 males; 502 founders) loaded from
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all.psam.
+283173 variants loaded from
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/chr19_by_superpopulation/EUR_all.pvar.zst.
+Note: No phenotype data present.
+--keep: 352 samples remaining.
+352 samples (188 females, 164 males; 352 founders) remaining after main
+filters.
+--read-freq: PLINK 2 --geno-counts file detected.
+--read-freq: Frequencies for 283173 variants loaded.
+--variant-score: 5 score-vectors loaded for 352 samples.
+--variant-score: Score matrix written to
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_3.vscore.bin
+, and associated column and variant ID labels written to
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_3.vscore.cols
+and
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_3.vscore.vars.zst
+.
+End time: Mon Mar 11 12:54:14 2024
+[2024-03-11 12:54:14.339162 snpnet]         End plink2 --variant-score. Time elapsed: 0.4606 secs
+[2024-03-11 12:54:14.34847 snpnet]       End computeProduct(). Time elapsed: 0.4699 secs
+[2024-03-11 12:54:14.400556 snpnet]   KKT check obj done ...
+[2024-03-11 12:54:14.517852 snpnet]     Time of prediction on validation matrix Time elapsed: 0.0031 secs
+[2024-03-11 12:54:14.51805 snpnet] metric train
+[2024-03-11 12:54:14.518181 snpnet] metric val.
+[2024-03-11 12:54:14.519365 snpnet]   Training and validation metric:
+[2024-03-11 12:54:14.519442 snpnet]   - Lambda idx 16. Training: 0.246651009954364. Validation: 0.131840311161674
+[2024-03-11 12:54:14.519491 snpnet]   - Lambda idx 17. Training: 0.274903256847531. Validation: 0.135530464243494
+[2024-03-11 12:54:14.519533 snpnet]   - Lambda idx 18. Training: 0.301930010937229. Validation: 0.138601602099637
+[2024-03-11 12:54:14.519576 snpnet]   - Lambda idx 19. Training: 0.331439304846593. Validation: 0.136111282915042
+[2024-03-11 12:54:14.51962 snpnet]   - Lambda idx 20. Training: 0.364736057875288. Validation: 0.129989542229266
+[2024-03-11 12:54:14.519665 snpnet]   End iteration 3. Time elapsed: 3.7519 secs
+[2024-03-11 12:54:14.519665 snpnet]     The total time since start. Time elapsed: 12.1609 secs
+[2024-03-11 12:54:14.519847 snpnet] stopping lag=18, max.val.1=0.138602 max.val.2=0.136111
+[2024-03-11 12:54:14.519886 snpnet] Early stopped at iteration 3 (Lambda idx=18 ) with validation metric: 0.13860160209964.
+[2024-03-11 12:54:14.519921 snpnet]   Previous ones: 0.136111282915042, 0.129989542229266.
+[2024-03-11 12:54:14.519966 snpnet] End snpnet. Time elapsed: 12.1612 secs
+-- Train score 0.36473608480023: pop=EUR, power=-0.25, her=0.9, num-causals=50, pheno=20
+-- Test score 0.12856652682643: pop=EUR, power=-0.25, her=0.9, num-causals=50, pheno=20
+-- Combined prediction data has been written to: /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/combined_predict_EUR_power=-0.25_her=0.9_num-causals=50_pheno=1-20.csv
+-- Combined result data has been written to: /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/combined_result_EUR_power=-0.25_her=0.9_num-causals=50_pheno=1-20.csv
+
+
+
+
+
+  │  ~/L/Cl/Dropbox/GitHub/cse-284-prs-comparison/notebook │   main ?19           39m 59s  │ base  
+❯ 
+
+
+
+
+
+
+  │  ~/L/Cl/Dropbox/GitHub/cse-284-prs-comparison/notebook │   main ?19           39m 59s  │ base  
+❯ 
+
+--variant-score: Score matrix written to
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_3.vscore.bin
+, and associated column and variant ID labels written to
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_3.vscore.cols
+and
+/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/models5/results/residuals_iter_3.vscore.vars.zst
+.
+End time: Mon Mar 11 12:54:14 2024
+[2024-03-11 12:54:14.339162 snpnet]         End plink2 --variant-score. Time elapsed: 0.4606 secslapsed: 0.4606 secs
+[2024-03-11 12:54:14.34847 snpnet]       End computeProduct(). Time elapsed: 0.4699 secs.4699 secs
+[2024-03-11 12:54:14.400556 snpnet]   KKT check obj done ...
+[2024-03-11 12:54:14.517852 snpnet]     Time of prediction on validation matrix Time elapsed: 0.0031 secscs
+[2024-03-11 12:54:14.51805 snpnet] metric train
+[2024-03-11 12:54:14.518181 snpnet] metric val.
+[2024-03-11 12:54:14.519365 snpnet]   Training and validation metric:
+[2024-03-11 12:54:14.519442 snpnet]   - Lambda idx 16. Training: 0.246651009954364. Validation: 0.131840311161674
+[2024-03-11 12:54:14.519491 snpnet]   - Lambda idx 17. Training: 0.274903256847531. Validation: 0.135530464243494
+[2024-03-11 12:54:14.519533 snpnet]   - Lambda idx 18. Training: 0.301930010937229. Validation: 0.138601602099637
+[2024-03-11 12:54:14.519576 snpnet]   - Lambda idx 19. Training: 0.331439304846593. Validation: 0.136111282915042
+[2024-03-11 12:54:14.51962 snpnet]   - Lambda idx 20. Training: 0.364736057875288. Validation: 0.129989542229266
+[2024-03-11 12:54:14.519665 snpnet]   End iteration 3. Time elapsed: 3.7519 secscs
+[2024-03-11 12:54:14.519665 snpnet]     The total time since start. Time elapsed: 12.1609 secsed: 12.1609 secs
+[2024-03-11 12:54:14.519847 snpnet] stopping lag=18, max.val.1=0.138602 max.val.2=0.136111l.2=0.136111
+[2024-03-11 12:54:14.519886 snpnet] Early stopped at iteration 3 (Lambda idx=18 ) with validation metric: 0.13860160209964.
+[2024-03-11 12:54:14.519921 snpnet]   Previous ones: 0.136111282915042, 0.129989542229266.89542229266.
+[2024-03-11 12:54:14.519966 snpnet] End snpnet. Time elapsed: 12.1612 secs
+-- Train score 0.36473608480023: pop=EUR, power=-0.25, her=0.9, num-causals=50, pheno=20, pheno=20
+-- Test score 0.12856652682643: pop=EUR, power=-0.25, her=0.9, num-causals=50, pheno=20 pheno=20
+-- Combined prediction data has been written to: /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/combined_predict_EUR_power=-0.25_her=0.9_num-causals=50_pheno=1-20.csv
+-- Combined result data has been written to: /Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison/data/BASIL/chr19_ldl_pheno/combined_result_EUR_power=-0.25_her=0.9_num-causals=50_pheno=1-20.csv
