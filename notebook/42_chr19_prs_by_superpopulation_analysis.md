@@ -1,7 +1,7 @@
 ---
 title: "Compare PRS by Phenotype Parameters"
 author: "Keng-Chi Chang"
-date: "2024-03-12"
+date: "2024-03-13"
 output: 
   html_document: 
     keep_md: yes
