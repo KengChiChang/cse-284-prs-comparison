@@ -238,17 +238,17 @@ Table above reports the training and test set performance across the three metho
 
 | Superpopulation | AFR  | AMR  | EAS  | EUR  | SAS  |
 | --------------- | ---- | ---- | ---- | ---- | ---- |
-| C+T             | ==0.90== | 0.71 | ==0.89== | ==0.92== | ==0.93== |
+| C+T             | <mark>0.90</mark> | <mark>0.71</mark> | <mark>0.89</mark> | <mark>0.92</mark> |<mark>0.93</mark> |
 | BASIL/`snpnet`  | 0.59 | 0.43 | 0.84 | 0.51 | 0.48 |
-| BayesR/`GCTB`   | ==0.92== | ==0.93== | ==0.90== | ==0.91== | ==0.92== |
+| BayesR/`GCTB`   |<mark>0.92</mark> | <mark>0.93</mark> | <mark>0.90</mark> | <mark>0.91</mark> | <mark>0.92</mark> |
 
 - $R^2$ results on testing dataset
 
 | Superpopulation | AFR | AMR | EAS | EUR | SAS |
 | --------------- | --- | --- | --- | --- | --- |
 | C+T             |  0.24   |  0.08   |  0.20   |  0.21   |  0.15   |
-| BASIL/`snpnet`  |  0.27   |  0.11   | ==0.45==    |  0.16   |   0.13  |
-| BayesR/`GCTB`   |  ==0.33==  | ==0.23==   |  0.23   |   ==0.29==  |  ==0.27==   |
+| BASIL/`snpnet`  |  0.27   |  0.11   | <mark>0.45</mark>    |  0.16   |   0.13  |
+| BayesR/`GCTB`   |  <mark>0.33</mark> | <mark>0.23</mark>   |  0.23   |   <mark>0.29</mark>  |  <mark>0.27</mark>   |
 
 ## Discussions 
 ### Challenges and limitations
