@@ -2,11 +2,13 @@
 
 <img src="https://github.com/KengChiChang/cse-284-prs-comparison/blob/40b83cdf9b805f753f73a6b8fc9978ecefa33691/figure/result_by_numcausal_method_1.png?raw=true" width="50%"/><img src="https://github.com/KengChiChang/cse-284-prs-comparison/blob/40b83cdf9b805f753f73a6b8fc9978ecefa33691/figure/scores_by_pop_method_1.png?raw=true" width="50%"/>
 
+
 > Keywords: GWAS (Genome-wide Association Studies), PRS (Polygenic Risk Score), C+T (Clumping and Thresholding), BASIL (Lasso Regression), and BayesR (Bayesian Multiple Regression)
 
 ## Group 18
 - Keng-Chi Chang
 - Po-Chun Wu
+
 
 ## Introduction
 Polygenic Risk Scores (PRS) hold promise for personalized medicine but face challenges in prediction accuracy. This study investigates how simulation parameters affect PRS accuracy using Clumping + Thresholding, BASIL (Lasso-based method in `snpnet` package), and BayesR (Bayesian Multiple Regression-based method in `GCTB` package). By manipulating parameters such as heritability, number of causal SNPs, and how minor allel frequency affects heritability, we aim to understand whether certain PRS method might have advantage over others, and under what conditions. Our findings can inform the selection of PRS and phenotype simulation methods for precise disease risk prediction in clinical and research settings, advancing personalized healthcare interventions.
@@ -98,7 +100,10 @@ We are analyzing real genome data from [1000 Genomes Project](https://www.intern
     - Split by Super-population: `data/1000g_by_superpopulation/`
 - Reference: https://dougspeed.com/1000-genomes-project/
 
-![image](https://hackmd.io/_uploads/ry7O-dTT6.png)
+<img src="https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/figure/1000_genomes_superpopulation_pie_chart.png?raw=true" width="80%"/>
+
+
+
 
 
 
@@ -108,7 +113,7 @@ We are analyzing real genome data from [1000 Genomes Project](https://www.intern
 - Options
     - `--make-phenos`: perform simulation
     - `--power` ($\alpha$) : specify how predictors are scaled
-        - Diffirent from the *power* that indicates the probability  we can detect an association at the desired significance level, given that there is actually an association. 
+        - Diffirent from the *power* mentioned in the class that indicates the probability  we can detect an association at the desired significance level, given that there is actually an association. 
     - `--her`: heritability describes how much variation in the phenotype is described by genetics.
     - `--num-phenos`: the number of phenotypes to generate.
     - `--num-causals`: the number of predictors contributing to each phenotype.
@@ -146,6 +151,7 @@ $$PRS_i = \sum_{j \in S} \beta_j X_{ij}$$
 - Reference: UCSD CSE 284 Week 6 Lecture Slides, PS3, and PS4
 1. Perform a GWAS to estimate per-variant effect sizes ($\beta$'s)
     - `--linear --maf 0.05`
+    $$Y = \beta_j X_j + \epsilon$$
 2. Perform LD clumping (pruning) to get an independent set of SNPs
     - `--clump gwas.assoc.linear`
     - `--clump-p1 0.0001`: significance threshold for index SNPs   
@@ -159,7 +165,7 @@ $$PRS_i = \sum_{j \in S} \beta_j X_{ij}$$
 - Notes: When running C+T for AMR (superpopulation) dataset from 1000 Genomes, we encountered a problem that `PLINK 2.0` will not run the `--score` command when there are less than 50 samples. Since there are not enough samples for validation data. We choose the best p value threhold $T$ in the training data as the $T$ for testing data. Thus, the performance may be underrated.
 
 ### [BASIL](https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/notebook/11_test_snpnet.ipynb) [![image](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1OR4CZl0jsxGFqEJ0MFgDkcrLgv4YNv94?usp=sharing)
-
+$$Minimize \sum_i (y_i - \hat{y}_i)^2 + \lambda \sum_j |\hat{\beta}_j|$$
 - Tool: [`snpnet`](https://github.com/junyangq/snpnet?tab=readme-ov-file)
 - Reference: [Vignette of the `snpnet` `R` package](https://github.com/junyangq/snpnet/blob/master/vignettes/vignette.pdf) by Junyang Qian and Trevor Hastie
 1. (Already preprocessed) convert genotypes to `.pgen`
@@ -186,8 +192,10 @@ $$PRS_i = \sum_{j \in S} \beta_j X_{ij}$$
 ## Experiments
 ### All autosomes with Random Effect Sizes
 - $R^2$ of testing data close to $0$ 🥲 
+- Probably because there are not enough samples to model the complicated relaitonships between variants and phenotypes.
 ### Chr 19 with Random Effect Sizes
 - $R^2$ of testing data close to $0$ 🥲 
+- Probably because there are not enough samples to model the complicated relaitonships between variants and phenotypes.
 ### Chr 19 with Fixed Effect Sizes
 - It works 😃
     - Superpopulation: {'AFR', 'AMR', 'EAS', 'EUR', 'SAS'}
@@ -199,6 +207,10 @@ $$PRS_i = \sum_{j \in S} \beta_j X_{ij}$$
             - Columns: IID, Predicted Phenotype, Actual Phenotype, Phenotype Index
         - `combined_result_{superpopulation}_power={power}_her={heritability}_num-causals={number of causal SNPs}_pheno={number of phenotypes}.csv`
             - Columns: Superpopulation,	Power, Heritability, Number of Causal SNPs,	Phenotype Index, Training $R^2$, Validation $R^2$, Testing $R^2$
+- Execution Time (on Google Colab)
+    - C + T: $\approx$ 6 hours
+    - BASIL:
+    - BayesR: 
 
 ## Evaluation
 - $R^2$ (coefficient of determination) on the testing dataset in the context of GWAS and PRS provides a measure of how well a polygenic risk score can predict (true) phenotypes.
@@ -216,7 +228,7 @@ As a proof of concept and testing of data/input requirements for different softw
 | -------------- | -------------- | ------------- |
 | C+T            | 0.98           | 0.64          |
 | BASIL/`snpnet` | 0.99           | 0.65          |
-| BayesR/`GCTB`  | 0.99           | 0.89          |
+| BayesR/`GCTB`  | 0.99           | ==0.89==          |
 
 Table above reports the training and test set performance across the three methods. All three methods overfit on their own dataset. C+T and BASIL achieve similar performance on test set, while BayesR performs much better on the test set.
 
@@ -224,19 +236,19 @@ Table above reports the training and test set performance across the three metho
 
 - $R^2$ results on training dataset
 
-| Superpopulation | AFR | AMR | EAS | EUR | SAS |
-| --------------- | --- | --- | --- | --- | --- |
-| C+T             |     |     |     |     |     |
-| BASIL/`snpnet`  |     |     |     |     |     |
-| BayesR/`GCTB`   |     |     |     |     |     |
+| Superpopulation | AFR  | AMR  | EAS  | EUR  | SAS  |
+| --------------- | ---- | ---- | ---- | ---- | ---- |
+| C+T             | ==0.90== | 0.71 | ==0.89== | ==0.92== | ==0.93== |
+| BASIL/`snpnet`  | 0.59 | 0.43 | 0.84 | 0.51 | 0.48 |
+| BayesR/`GCTB`   | ==0.92== | ==0.93== | ==0.90== | ==0.91== | ==0.92== |
 
 - $R^2$ results on testing dataset
 
 | Superpopulation | AFR | AMR | EAS | EUR | SAS |
 | --------------- | --- | --- | --- | --- | --- |
-| C+T             |     |     |     |     |     |
-| BASIL/`snpnet`  |     |     |     |     |     |
-| BayesR/`GCTB`   |     |     |     |     |     |
+| C+T             |  0.24   |  0.08   |  0.20   |  0.21   |  0.15   |
+| BASIL/`snpnet`  |  0.27   |  0.11   | ==0.45==    |  0.16   |   0.13  |
+| BayesR/`GCTB`   |  ==0.33==  | ==0.23==   |  0.23   |   ==0.29==  |  ==0.27==   |
 
 ## Discussions 
 ### Challenges and limitations
@@ -244,7 +256,7 @@ Table above reports the training and test set performance across the three metho
 - The number of samples of each superpopulation from 1000 Genomes Project vary a lot. Therefore, the comparison results across superpopulations may not be representative.
 
 ### Future Work
-
+- Different distributions of effect sizes and causal SNPs from different traits.
 
 ## Related Work
 - Frank Dudbridge (2013) provided a comprehensive overview of the power and predictive accuracy of PRS, highlighting the statistical principles underpinning these methods and their implications for disease risk prediction. 
