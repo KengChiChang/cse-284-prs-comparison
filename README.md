@@ -3,7 +3,7 @@
 <img src="https://github.com/KengChiChang/cse-284-prs-comparison/blob/40b83cdf9b805f753f73a6b8fc9978ecefa33691/figure/result_by_numcausal_method_1.png?raw=true" width="50%"/><img src="https://github.com/KengChiChang/cse-284-prs-comparison/blob/40b83cdf9b805f753f73a6b8fc9978ecefa33691/figure/scores_by_pop_method_1.png?raw=true" width="50%"/>
 
 
-> Keywords: GWAS (Genome-wide Association Studies), PRS (Polygenic Risk Score), C+T (Clumping and Thresholding), BASIL (Lasso Regression), and BayesR (Bayesian Multiple Regression)
+> Keywords: GWAS (Genome-wide Association Studies), Phenotype Simulation, PRS (Polygenic Risk Score), C+T (Clumping and Thresholding), BASIL (Lasso Regression), and BayesR (Bayesian Regression)
 
 ## Group 18
 - Keng-Chi Chang
@@ -15,7 +15,7 @@ Polygenic Risk Scores (PRS) hold promise for personalized medicine but face chal
 
 
 ## Methods
-- Clumping + Thresholding (C+T) using Plink
+- Clumping + Thresholding (C+T) (PLINK 2)
 - [Batch Screening Iterative Lasso (BASIL)](https://github.com/rivas-lab/snpnet)
 - [Bayesian Multiple Regression (BayesR)](https://cnsgenomics.com/software/gctb/#Overview)
 
@@ -24,7 +24,7 @@ Polygenic Risk Scores (PRS) hold promise for personalized medicine but face chal
 1. Since Clumping + Thresholding does not directly model the additive effects of the contribution from mutliple SNPs, we expect that C+T would perform the worst when the number of causal SNPs increases.
 2. Both BASIL and BayesR should be better at capturing additive effects from many SNPs, while shrinkage-based method might incorrectly shrink some effects to zero.
 
-Consider heritability model of the form [(Speed, Holmes, and Balding 2023)](https://www.nature.com/articles/s41588-020-0600-y)
+Consider heritability model of the form [(Speed, Holmes, and Balding 2020)](https://www.nature.com/articles/s41588-020-0600-y)
 $$\mathbb{E}\left[h^2_j\right]=\sum_j w_j\left[f_j(1-f_j)\right]^{(1+\alpha)},$$
 where $w_j$ is the weight for SNP $j$ and $f_j$ is its minor allele frequency (MAF). For simplicity, we assume that weight $w_j$ is a constant.
 
@@ -38,9 +38,10 @@ The current published papers comparing these methods have mixed findings. Most o
 ## Directory for Data Storage and Computation
 We are analyzing real genome data from [1000 Genomes Project](https://www.internationalgenome.org) Phase Three call set on GRCh37. Since the size of the data is huge, for the ease of data storage and collaborating, we store our data on Google Drive and use Google Colab for compute (by reading/copying files directly from Google Drive).
 
-[Here](https://drive.google.com/drive/folders/1vONriV2u1j2BinWGxUhBwLnFN94u3Mig?usp=drive_link) is the link to our Google Drive project folder. The files are organized as follows:
+- Notes: We have updated the related notebooks and the data of calculation results on GitHub. However, due to the large size of other raw data, we have only placed it on Google Drive.
 
-==// TO BE UPDATED==
+[Here](https://drive.google.com/drive/folders/1vONriV2u1j2BinWGxUhBwLnFN94u3Mig?usp=drive_link) is the link to our Google Drive project folder. Part of the files are organized as follows:
+
 ```
 /CSE-284-Final-Project/
 ├── data
@@ -71,21 +72,42 @@ We are analyzing real genome data from [1000 Genomes Project](https://www.intern
 │       ├── GBR_chr19_normed.{bed,bim,fam,pgen,pvar.zst,psam}
 │       └── kgvcf_ldl.{phe,phen,pheno}
 └── notebook ← Data processing and analysis
-    ├── 0_download_1000genome_data_and_simulate_phenotypes.ipynb
-    ├── 1_convert_to_pgen.ipynb
-    ├── 2_convert_to_bed.ipynb
-    ├── 4_split_train_val_test.ipynb
-    ├── 5_simulate_phenotype.ipynb
-    ├── 6_update_phenotype_format.ipynb
-    ├── 11_test_snpnet.ipynb
-    ├── 12_test_GCTB.ipynb
-    └── 15_test_C+T.ipynb
+    ├── 00_download_1000genome_data_and_simulate_phenotypes.ipynb
+    ├── 01_convert_to_pgen.ipynb
+    ├── 02_convert_to_bed.ipynb
+    ├── 04_split_train_val_test.ipynb
+    ├── 05_simulate_phenotype.ipynb
+    ├── 06_update_phenotype_format.ipynb
+    ├── 07_convert_chr19.ipynb
+    ├── 08_LDAK_chr19_pheno_simulation.ipynb
+    ├── 09_test_GCTA_pheno_simulation.ipynb
+    ├── 11_test_snpnet.ipynb
+    ├── 12_test_GCTB.ipynb
+    ├── 13_test_C+T.ipynb
+    ├── 21_1000g_snpnet.ipynb
+    ├── 22_1000g_GCTB.ipynb
+    ├── 23_1000g_CT_population.ipynb
+    ├── 24_CT_test_PS4.ipynb
+    ├── 31_snpnet_superpopulation.ipynb
+    ├── 32_GCTB_superpopulation.ipynb
+    ├── 33_CT_superpopulation.ipynb
+    ├── 34_CT_population.ipynb
+    ├── 41_chr19_prs_by_superpopulation_check_progress.ipynb
+    ├── 42_chr19_prs_by_superpopulation_analysis.Rmd
+    ├── 42_chr19_prs_by_superpopulation_analysis.html
+    ├── 42_chr19_prs_by_superpopulation_analysis.md
+    └── 43_analysis.ipynb
 ```
-
+- File naming of `notebook` directory
+    - 0x: Data Preprocessing
+    - 1x: Model testing
+    - 2x: Run models on all autosomes
+    - 3x: Run models on Chr 19 only (final setting)
+    - 4x: Results and analysis
 
 ## Data Preprocessing
 
-### [Genotypes (1000 Genomes)](https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/notebook/0_download_1000genome_data_and_simulate_phenotypes.ipynb) [![image](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1fsrn4J2BjSbKy6PdnAUmo6Rz7Hbbclbb?usp=sharing)
+### [Genotypes (1000 Genomes)](https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/notebook/00_download_1000genome_data_and_simulate_phenotypes.ipynb) [![image](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://drive.google.com/file/d/1XIm8UKT1MxdjKfQDr75cxLtmREFvJpvl/view?usp=share_link)
 - Goal: get the dataset of all autosomes from 1000 Genomes with quality control
 - Tool: [`PLINK 1.9`](https://www.cog-genomics.org/plink/) and [`PLINK 2.0`](https://www.cog-genomics.org/plink/2.0/)
 - Data Quality Control
@@ -100,14 +122,11 @@ We are analyzing real genome data from [1000 Genomes Project](https://www.intern
     - Split by Super-population: `data/1000g_by_superpopulation/`
 - Reference: https://dougspeed.com/1000-genomes-project/
 
-<img src="https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/figure/1000_genomes_superpopulation_pie_chart.png?raw=true" width="80%"/>
+<img src="https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/figure/1000_genomes_superpopulation_pie_chart.png?raw=true" width="50%"/>
 
+(Number of Samples from Each Superpopulation on 1000 Genomes Project Phase 3 Dataset)
 
-
-
-
-
-### [Phenotypes (Simulation)](https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/notebook/5_simulate_phenotype.ipynb) [![image](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1SwnUGFM03mQmzqktkIUt9pW-OBqze0jc?usp=sharing)
+### [Phenotypes (Simulation)](https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/notebook/05_simulate_phenotype.ipynb) [![image](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://drive.google.com/file/d/1XQ9W02ikpiQipvJ_-ByaTbNWD2dXpACE/view?usp=share_link)
 - Goal: simulate phenotypes with different settings
 - Tool: [LDAK](https://dougspeed.com/simulations/) 
 - Options
@@ -133,7 +152,7 @@ We are analyzing real genome data from [1000 Genomes Project](https://www.intern
     - `data/1000g_pheno/` 
 - Reference: https://dougspeed.com/simulations/
 
-### [Sample Splitting](https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/notebook/4_split_train_val_test.ipynb) [![image](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/16fbgP6IK38J7wIoPl_Zj-Ts7Wk_rFqX3?usp=sharing)
+### [Sample Splitting](https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/notebook/04_split_train_val_test.ipynb) [![image](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/16fbgP6IK38J7wIoPl_Zj-Ts7Wk_rFqX3?usp=share_link)
 <!-- - For our study on PRS, we adopted two distinct approaches to split our data into training, validation, and testing sets, ensuring a comprehensive evaluation of our methods.  -->
 - We randomly select samples from **each superpopulation** into 70% training, 15% validation, and 15% test sets, while keeping each set has balanced number of samples from each population and sex. 
 <!--     - Alternatively, we drew inspiration from Problem Set 4 (PS4), where data was segmented by **population**. This method allowed us to examine the influence of genetic diversity on PRS performance by closely mirroring real-world population structures.  -->
@@ -146,7 +165,7 @@ We are analyzing real genome data from [1000 Genomes Project](https://www.intern
 
 $$PRS_i = \sum_{j \in S} \beta_j X_{ij}$$
 
-### [C+T](https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/notebook/13_test_C+T.ipynb) [![image](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1qmOKXFYZ5QZ4ZXcYXd8Hxry66RztcvgA?usp=sharing)
+### [C+T](https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/notebook/33_CT_superpopulation.ipynb) [![image](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1qmOKXFYZ5QZ4ZXcYXd8Hxry66RztcvgA?usp=share_link)
 - Tool: [`PLINK 2.0`](https://www.cog-genomics.org/plink/2.0/)
 - Reference: UCSD CSE 284 Week 6 Lecture Slides, PS3, and PS4
 1. Perform a GWAS to estimate per-variant effect sizes ($\beta$'s)
@@ -164,7 +183,7 @@ $$PRS_i = \sum_{j \in S} \beta_j X_{ij}$$
 - Repeat steps 2-4 to find out which $T$ work the best (validation dataset)
 - Notes: When running C+T for AMR (superpopulation) dataset from 1000 Genomes, we encountered a problem that `PLINK 2.0` will not run the `--score` command when there are less than 50 samples. Since there are not enough samples for validation data. We choose the best p value threhold $T$ in the training data as the $T$ for testing data. Thus, the performance may be underrated.
 
-### [BASIL](https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/notebook/11_test_snpnet.ipynb) [![image](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1OR4CZl0jsxGFqEJ0MFgDkcrLgv4YNv94?usp=sharing)
+### [BASIL](https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/notebook/31_snpnet_superpopulation.ipynb) [![image](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1XpSwudemAC_NB_fxiJ_w0RzWly330Aj-?usp=share_link)
 $$Minimize \sum_i (y_i - \hat{y}_i)^2 + \lambda \sum_j |\hat{\beta}_j|$$
 - Tool: [`snpnet`](https://github.com/junyangq/snpnet?tab=readme-ov-file)
 - Reference: [Vignette of the `snpnet` `R` package](https://github.com/junyangq/snpnet/blob/master/vignettes/vignette.pdf) by Junyang Qian and Trevor Hastie
@@ -177,7 +196,7 @@ $$Minimize \sum_i (y_i - \hat{y}_i)^2 + \lambda \sum_j |\hat{\beta}_j|$$
   - `new_genotype_file` to test on test set
 4. Evaluate $R^2$ in `pred_snpnet$metric`
 
-### [BayesR](https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/notebook/12_test_GCTB.ipynb)  [![image](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1WGhJaDTsY1LcJuOcysQHrEndwxssRcwD?usp=sharing)
+### [BayesR](https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/notebook/32_GCTB_superpopulation.ipynb)  [![image](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/18Zza9rGNuba7vBDF-in7mumzRYwTbHqk?usp=share_link)
 
 - Tool: [`GCTB`](https://cnsgenomics.com/software/gctb/#SBayesRTutorial)
 - Reference: [Tutorial: Practical 4 Bayesian methods for genomic prediction](https://cnsgenomics.com/data/teaching/GNGWS23/module5/Practical4_Bayes.html) by `GCTB` package maintainer Jian Zeng
@@ -228,7 +247,7 @@ As a proof of concept and testing of data/input requirements for different softw
 | -------------- | -------------- | ------------- |
 | C+T            | 0.98           | 0.64          |
 | BASIL/`snpnet` | 0.99           | 0.65          |
-| BayesR/`GCTB`  | 0.99           | ==0.89==          |
+| BayesR/`GCTB`  | 0.99           | <mark>0.89</mark>          |
 
 Table above reports the training and test set performance across the three methods. All three methods overfit on their own dataset. C+T and BASIL achieve similar performance on test set, while BayesR performs much better on the test set.
 
@@ -276,6 +295,7 @@ Table above reports the training and test set performance across the three metho
 - Khera, A.V., Chaffin, M., Aragam, K.G. et al. (2018) Genome-wide polygenic scores for common diseases identify individuals with risk equivalent to monogenic mutations. Nat Genet 50, 1219–1224. https://doi.org/10.1038/s41588-018-0183-z
 - Lloyd-Jones, L.R., Zeng, J., Sidorenko, J. et al. (2019) Improved polygenic prediction by Bayesian multiple regression on summary statistics. Nat Commun 10, 5086. https://doi.org/10.1038/s41467-019-12653-0
 - Ge, T., Chen, CY., Ni, Y. et al. (2019) Polygenic prediction via Bayesian regression and continuous shrinkage priors. Nat Commun 10, 1776. https://doi.org/10.1038/s41467-019-09718-5
+- Speed, D., Holmes, J. & Balding, D.J. (2020) Evaluating and improving heritability models using summary statistics. Nat Genet 52, 458–462. https://doi.org/10.1038/s41588-020-0600-y
 - Qian J, Tanigawa Y, Du W, Aguirre M, Chang C, Tibshirani R, et al. (2020) A fast and scalable framework for large-scale and ultrahigh-dimensional sparse regression with application to the UK Biobank. PLoS Genet 16(10): e1009141. https://doi.org/10.1371/journal.pgen.1009141
 - Ding, Y., Hou, K., Xu, Z. et al. (2023) Polygenic scoring accuracy varies across the genetic ancestry continuum. Nature 618, 774–781. https://doi.org/10.1038/s41586-023-06079-4
 - [UCSD CSE 284 Lecture Slides and Problem Sets](https://canvas.ucsd.edu/courses/53280)
