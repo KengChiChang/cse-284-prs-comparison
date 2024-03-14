@@ -37,10 +37,29 @@ The current published papers comparing these methods have mixed findings. Most o
 
 ## Directory for Data Storage and Computation
 We are analyzing real genome data from [1000 Genomes Project](https://www.internationalgenome.org) Phase Three call set on GRCh37. Since the size of the data is huge, for the ease of data storage and collaborating, we store our data on Google Drive and use Google Colab for compute (by reading/copying files directly from Google Drive).
-
 - Notes: We have updated the related notebooks and the data of calculation results on GitHub. However, due to the large size of other raw data, we have only placed it on Google Drive.
 
-[Here](https://drive.google.com/drive/folders/1vONriV2u1j2BinWGxUhBwLnFN94u3Mig?usp=drive_link) is the link to our Google Drive project folder. Part of the files are organized as follows:
+[Here](https://drive.google.com/drive/folders/1vONriV2u1j2BinWGxUhBwLnFN94u3Mig?usp=drive_link) is the link to our Google Drive project folder. 
+
+GitHub Directory:
+```
+.
+├── data
+│   ├── BASIL
+│   │   └── chr19_ldl_pheno ← results of BASIL
+│   ├── BayesR
+│   │   └── chr19_ldl_pheno ← results of BayesR
+│   ├── CT
+│   │   └── chr19_ldl_pheno ← results of C+T
+│   ├── chr19_ldl_pheno ← Phenotype Simulation
+│   └── split_ids ← Data splitting (train, validation, test)
+│       ├── by_population
+│       └── by_superpopulation 
+├── figure ← analysis and graphs
+└── notebook ← codes and scripts
+```
+
+Part of the files in Google Drive Project are organized as follows:
 
 ```
 /CSE-284-Final-Project/
@@ -149,7 +168,7 @@ We are analyzing real genome data from [1000 Genomes Project](https://www.intern
     - Columns: FID, IID, PHEN1, PHEN2, PHEN3, ...
 - Notes: At first, we didn't specify the `<causalsfile>` and `<effectsfile>`. By default, LDAK will pick causal predictors at random and sample effect sizes from a standard normal distribution. However, the results of PRS using randomly selected causal SNPs and effect sizes are horrible ($R^2$ of testing data close to $0$). Therefore, we adopted the `ldl_prs.txt` data from UCSD CSE 284 PRS Activity, which is the LDL PRS data from this [paper](https://www.nature.com/articles/s41586-021-04064-3) and its publicly available [data](https://csg.sph.umich.edu/willer/public/glgc-lipids2021/results/prs_weights/GLGC_2021_ALL_LDL_PRS_weights_PT.txt). Also, since there are 512 SNPs on Chromosome 19 listed in `ldl_prs.txt`, the maximal number of causal SNPs is 512.
 - Dataset
-    - `data/1000g_pheno/` 
+    - `data/chr19_ldl_pheno/` 
 - Reference: https://dougspeed.com/simulations/
 
 ### [Sample Splitting](https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/notebook/04_split_train_val_test.ipynb) [![image](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/16fbgP6IK38J7wIoPl_Zj-Ts7Wk_rFqX3?usp=share_link)
