@@ -1,6 +1,6 @@
 # How Simulation Parameters Impact Polygenic Scoring Accuracy Across Three Methods
 
-<img src="https://github.com/KengChiChang/cse-284-prs-comparison/blob/40b83cdf9b805f753f73a6b8fc9978ecefa33691/figure/result_by_numcausal_method_1.png?raw=true" width="50%"/><img src="https://github.com/KengChiChang/cse-284-prs-comparison/blob/40b83cdf9b805f753f73a6b8fc9978ecefa33691/figure/scores_by_pop_method_1.png?raw=true" width="50%"/>
+<img src="https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/figure/result_by_numcausal_method_1.png?raw=true" width="50%"/><img src="https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/figure/scores_by_pop_method_1.png?raw=true" width="50%"/>
 
 
 > Keywords: GWAS (Genome-wide Association Studies), Phenotype Simulation, PRS (Polygenic Risk Score), C+T (Clumping and Thresholding), BASIL (Lasso Regression), and BayesR (Bayesian Regression)
@@ -44,19 +44,16 @@ We are analyzing real genome data from [1000 Genomes Project](https://www.intern
 GitHub Directory:
 ```
 .
+├── notebook                   ← Codes and scripts
 ├── data
-│   ├── BASIL
-│   │   └── chr19_ldl_pheno ← results of BASIL
-│   ├── BayesR
-│   │   └── chr19_ldl_pheno ← results of BayesR
-│   ├── CT
-│   │   └── chr19_ldl_pheno ← results of C+T
-│   ├── chr19_ldl_pheno ← Phenotype Simulation
-│   └── split_ids ← Data splitting (train, validation, test)
+│   ├── BASIL/chr19_ldl_pheno  ← Results of BASIL
+│   ├── BayesR/chr19_ldl_pheno ← Results of BayesR
+│   ├── CT/chr19_ldl_pheno     ← Results of C+T
+│   ├── chr19_ldl_pheno        ← Simulated phenotypes
+│   └── split_ids              ← Sample splitting (train, val, test)
 │       ├── by_population
 │       └── by_superpopulation 
-├── figure ← analysis and graphs
-└── notebook ← codes and scripts
+└── figure                     ← Analysis and graphs
 ```
 
 Part of the files in Google Drive Project are organized as follows:
@@ -182,7 +179,7 @@ Part of the files in Google Drive Project are organized as follows:
 
 ## Details
 
-$$PRS_i = \sum_{j \in S} \beta_j X_{ij}$$
+$$\mathrm{PRS}_i = \sum_{j \in S} \beta_j X_{ij}$$
 
 ### [C+T](https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/notebook/33_CT_superpopulation.ipynb) [![image](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1qmOKXFYZ5QZ4ZXcYXd8Hxry66RztcvgA?usp=share_link)
 - Tool: [`PLINK 2.0`](https://www.cog-genomics.org/plink/2.0/)
@@ -203,7 +200,7 @@ $$PRS_i = \sum_{j \in S} \beta_j X_{ij}$$
 - Notes: When running C+T for AMR (superpopulation) dataset from 1000 Genomes, we encountered a problem that `PLINK 2.0` will not run the `--score` command when there are less than 50 samples. Since there are not enough samples for validation data. We choose the best p value threhold $T$ in the training data as the $T$ for testing data. Thus, the performance may be underrated.
 
 ### [BASIL](https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/notebook/31_snpnet_superpopulation.ipynb) [![image](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1XpSwudemAC_NB_fxiJ_w0RzWly330Aj-?usp=share_link)
-$$Minimize \sum_i (y_i - \hat{y}_i)^2 + \lambda \sum_j |\hat{\beta}_j|$$
+$$\mathrm{Minimize} \sum_i (y_i - \hat{y}_i)^2 + \lambda \sum_j |\hat{\beta}_j|$$
 - Tool: [`snpnet`](https://github.com/junyangq/snpnet?tab=readme-ov-file)
 - Reference: [Vignette of the `snpnet` `R` package](https://github.com/junyangq/snpnet/blob/master/vignettes/vignette.pdf) by Junyang Qian and Trevor Hastie
 1. (Already preprocessed) convert genotypes to `.pgen`
@@ -292,6 +289,13 @@ Table above reports the training and test set performance across the three metho
 | BayesR/`GCTB`   |  <mark>0.32</mark> | <mark>0.23</mark>   |  <mark>0.23</mark>   |   <mark>0.30</mark>  |  <mark>0.25</mark>   | -->
 
 
+<img src="https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/figure/scores_by_pop_method_1.png?raw=true"/>
+
+<img src="https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/figure/result_by_her_method_1.png?raw=true"/>
+
+<img src="https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/figure/result_by_numcausal_method_1.png?raw=true"/>
+
+For more results and the code for replicating the figures, see [`notebook/42_chr19_prs_by_superpopulation_analysis.Rmd`](https://html-preview.github.io/?url=https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/notebook/42_chr19_prs_by_superpopulation_analysis.html)
 
 ## Discussions 
 ### Challenges and limitations
