@@ -179,7 +179,7 @@ Part of the files in Google Drive Project are organized as follows:
 
 ## Details
 
-$$\mathrm{PRS}_i = \sum_{j \in S} \beta_j X_{ij}$$
+$$PRS_i = \sum_{j \in S} \beta_j X_{ij}$$
 
 ### [C+T](https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/notebook/33_CT_superpopulation.ipynb) [![image](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1qmOKXFYZ5QZ4ZXcYXd8Hxry66RztcvgA?usp=share_link)
 - Tool: [`PLINK 2.0`](https://www.cog-genomics.org/plink/2.0/)
