@@ -1,7 +1,7 @@
 ---
 title: "Compare PRS by Phenotype Parameters"
 author: "Keng-Chi Chang"
-date: "2024-03-13"
+date: "2024-03-14"
 output: 
   html_document: 
     keep_md: yes
@@ -548,7 +548,7 @@ ggplot(predict_df |>
     scale_color_brewer(name="Superpopulation",
                        palette="Set1") +
     # scale_colour_hue(l = 70, c = 150) +
-    ggtitle("Predicted vs. Actual PRS by Number of Causal SNPs",
+    ggtitle(expression(paste("Predicted vs. Actual PRS by Heritability Power ", alpha)),
             subtitle="heritability = 0.9, number of causal SNPs = 100") +
     xlab("True PRS") + 
     ylab("Predicted PRS") +
@@ -595,7 +595,7 @@ ggplot(predict_df |>
     scale_color_brewer(name="Superpopulation",
                        palette="Set1") +
     # scale_colour_hue(l = 70, c = 150) +
-    ggtitle("Predicted vs. Actual PRS by Number of Causal SNPs",
+    ggtitle(expression(paste("Predicted vs. Actual PRS by Heritability Power ", alpha)),
             subtitle="heritability = 0.5, number of causal SNPs = 512") +
     xlab("True PRS") + 
     ylab("Predicted PRS") +

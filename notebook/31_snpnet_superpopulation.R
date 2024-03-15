@@ -2,11 +2,11 @@ library("tidyverse")
 library("glue")
 library("snpnet")
 
-LOG_ID           = '2024-3-11-11' # nolint: assignment_linter, single_quotes_linter.
+LOG_ID           = '2024-3-14-03' # nolint: assignment_linter, single_quotes_linter.
 POP_LIST         = c('EUR')
-POWER_LIST       = c(-0.25, -1)
-HER_LIST         = c(0.9, 0.5, 0.1, 0.7, 0.3)
-NUM_CAUSALS_LIST = c(512, 250, 100, 10, 1)
+POWER_LIST       = c(-1, -0.25)
+HER_LIST         = c(0.3, 0.7)
+NUM_CAUSALS_LIST = c(512, 100, 10, 1)
 PHENO_RANGE      = '1-20'
 
 PARENT_DIR        = "/Users/kengchichang/Library/CloudStorage/Dropbox/GitHub/cse-284-prs-comparison"
@@ -15,7 +15,7 @@ SPLIT_DIR         = glue("{PARENT_DIR}/data/split_ids/by_superpopulation")
 GENO_DIR          = glue("{PARENT_DIR}/data/chr19_by_superpopulation")
 PHEN_OLD_DIR      = glue("{PARENT_DIR}/data/chr19_ldl_pheno")
 PHEN_DIR          = glue("{PARENT_DIR}/data/chr19_ldl_pheno_corrected")
-MODEL_DIR         = glue("{PARENT_DIR}/data/BASIL/chr19_ldl_pheno/models5")
+MODEL_DIR         = glue("{PARENT_DIR}/data/BASIL/chr19_ldl_pheno/models3")
 RESULT_DIR        = glue("{PARENT_DIR}/data/BASIL/chr19_ldl_pheno")
 # GDRIVE_RESULT_DIR = 'data/drive/MyDrive/CSE-284-Final-Project/data/BASIL/chr19_ldl_pheno'
 pheno_col_names = paste0('PHENO', c(1:100))
