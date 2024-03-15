@@ -1,3 +1,16 @@
-# Ignore macOS .DS_Store files
-.DS_Store
-
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.gitignore
+*.Rproj
+notebook/clean_filename.ipynb
+notebook/score_train_test.sh
+notebook/script.sh
+notebook/split_pop_bed.sh
+notebook/train_BayesR_model.sh
+notebook/42_chr19_prs_by_superpopulation_analysis.R
+notebook/32_GCTB_superpopulation.ipynb
+script/
+data/1000g_by_chrom/
+data/chr19_by_superpopulation/
