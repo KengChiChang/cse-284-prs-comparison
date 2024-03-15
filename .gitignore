@@ -4,6 +4,7 @@
 .Ruserdata
 .gitignore
 *.Rproj
+.DS_Store
 notebook/clean_filename.ipynb
 notebook/score_train_test.sh
 notebook/script.sh
