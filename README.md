@@ -245,10 +245,10 @@ $$Minimize \sum_i (y_i - \hat{y}_i)^2 + \lambda \sum_j |\hat{\beta}_j|$$
             - Columns: IID, Predicted Phenotype, Actual Phenotype, Phenotype Index
         - `combined_result_{superpopulation}_power={power}_her={heritability}_num-causals={number of causal SNPs}_pheno={number of phenotypes}.csv`
             - Columns: Superpopulation,	Power, Heritability, Number of Causal SNPs,	Phenotype Index, Training $R^2$, Validation $R^2$, Testing $R^2$
-- Execution Time (on Google Colab)
+<!-- - Execution Time (on Google Colab)
     - C + T: $\approx$ 6 hours
     - BASIL:
-    - BayesR: 
+    - BayesR:  -->
 
 ## Evaluation
 - $R^2$ (coefficient of determination) on the testing dataset in the context of GWAS and PRS provides a measure of how well a polygenic risk score can predict (true) phenotypes.
@@ -272,21 +272,26 @@ Table above reports the training and test set performance across the three metho
 
 ## Results
 
-- $R^2$ results on training dataset
+<!-- - $R^2$ results on training dataset
 
 | Superpopulation | AFR  | AMR  | EAS  | EUR  | SAS  |
 | --------------- | ---- | ---- | ---- | ---- | ---- |
 | C+T             | <mark>0.90</mark> | <mark>0.71</mark> | <mark>0.89</mark> | <mark>0.92</mark> |<mark>0.93</mark> |
-| BASIL/`snpnet`  | 0.59 | 0.43 | 0.84 | 0.51 | 0.48 |
-| BayesR/`GCTB`   |<mark>0.92</mark> | <mark>0.93</mark> | <mark>0.90</mark> | <mark>0.91</mark> | <mark>0.92</mark> |
+| BASIL/`snpnet`  | 0.55 | 0.43 | 0.46 | 0.52 | 0.49 |
+| BayesR/`GCTB`   |<mark>0.92</mark> | <mark>0.93</mark> | <mark>0.90</mark> | <mark>0.91</mark> | <mark>0.92</mark> | -->
 
-- $R^2$ results on testing dataset
+<img src="https://github.com/KengChiChang/cse-284-prs-comparison/blob/main/figure/result_table.png?raw=true" width="100%"/>
+
+
+<!-- - $R^2$ results on testing dataset
 
 | Superpopulation | AFR | AMR | EAS | EUR | SAS |
 | --------------- | --- | --- | --- | --- | --- |
 | C+T             |  0.24   |  0.08   |  0.20   |  0.21   |  0.15   |
-| BASIL/`snpnet`  |  0.27   |  0.11   | <mark>0.45</mark>    |  0.16   |   0.13  |
-| BayesR/`GCTB`   |  <mark>0.33</mark> | <mark>0.23</mark>   |  0.23   |   <mark>0.29</mark>  |  <mark>0.27</mark>   |
+| BASIL/`snpnet`  |  0.27   |  0.16   | 0.32    |  0.20   |   0.17  |
+| BayesR/`GCTB`   |  <mark>0.32</mark> | <mark>0.23</mark>   |  <mark>0.23</mark>   |   <mark>0.30</mark>  |  <mark>0.25</mark>   | -->
+
+
 
 ## Discussions 
 ### Challenges and limitations
