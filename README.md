@@ -21,7 +21,7 @@ Polygenic Risk Scores (PRS) hold promise for personalized medicine but face chal
 
 
 ## Hypothesis
-1. Since Clumping + Thresholding does not directly model the additive effects of the contribution from mutliple SNPs, we expect that C+T would perform the worst when the number of causal SNPs increases.
+1. Since Clumping + Thresholding does not directly model the additive effects of the contribution from multiple SNPs, we expect that C+T would perform the worst when the number of causal SNPs increases.
 2. Both BASIL and BayesR should be better at capturing additive effects from many SNPs, while shrinkage-based method might incorrectly shrink some effects to zero.
 
 Consider heritability model of the form [(Speed, Holmes, and Balding 2020)](https://www.nature.com/articles/s41588-020-0600-y)
